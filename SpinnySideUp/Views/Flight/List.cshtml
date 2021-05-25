@@ -1,0 +1,60 @@
+﻿
+@model IEnumerable<SpinnySideUp.Models.FlightDto>
+
+@{
+    ViewBag.Title = "List Flights";
+}
+<h1>Flights</h1>
+<div class="card text-left">
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+                @Html.ActionLink("Add Flight", "Create")
+            </li>
+        </ul>
+    </div>
+</div>
+
+    <br />
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Date</th>
+                <th scope="col">Duty</th>
+                <th scope="col">Seat</th>
+                <th scope="col">Mission</th>
+                <th scope="col">AircraftId</th>
+                <th></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var Flightitem in Model)
+            {
+
+                <tr>
+                    <th scope="col">@Flightitem.Date</th>
+                    <th scope="col">@Flightitem.Duty</th>
+                    <th scope="col">@Flightitem.Seat</th>
+                    <th scope="col">@Flightitem.Mission</th>
+                    <th scope="col">@Flightitem.AircraftId</th>
+                    <th scope="col">
+                        <div class="card-header">
+                            <ul class="nav nav-pills card-header-pills">
+                                <li class="nav-item">
+                                    @Html.ActionLink("Details", "Details", new { id = Flightitem.FlightId })
+                                </li>
+                                <li class="nav-item">
+                                    @Html.ActionLink("Edit", "Edit", new { id = Flightitem.FlightId })
+                                </li>
+                            </ul>
+                        </div>
+                    </th>
+
+                </tr>
+
+
+            }
+        </tbody>
+    </table>

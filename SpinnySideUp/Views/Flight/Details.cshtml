@@ -1,0 +1,56 @@
+﻿@model SpinnySideUp.Models.ViewModels.ShowFlight
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+<div class="card text-left">
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+                @Html.ActionLink("All Flights", "List")
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Edit", "Edit", new { id = Model.Flight.FlightId })
+            </li>
+            <li class="nav-item">
+                @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Flight.FlightId })
+            </li>
+        </ul>
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">@Model.Flight.Date </h5>
+
+        <p class="card-text"><h7>Duty:</h7> @Model.Flight.Duty </p>
+        <p class="card-text"><h7>Seat:</h7> @Model.Flight.Seat </p>
+        <p class="card-text"><h7>Mission:</h7> @Model.Flight.Mission </p>
+        <p class="card-text"><h7>Aircraft ID:</h7> @Model.Flight.AircraftId </p>
+       
+        <table class="table">
+            <thead>
+                <tr>
+                    <th scope="col">Day</th>
+                    <th scope="col">Night</th>
+                    <th scope="col">NightGoggles</th>
+                    <th scope="col">NightSystems</th>
+                    <th scope="col">Weather</th>
+                    <th scope="col">Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+
+                    <td>@Model.Flight.Day</td>
+                    <td>@Model.Flight.Night</td>
+                    <td>@Model.Flight.NightGoggles</td>
+                    <td>@Model.Flight.NightSystems</td>
+                    <td>@Model.Flight.Weather</td>
+                </tr>
+            </tbody>
+        </table>
+
+
+        <p class="card-text"><h7>Notes:</h7> @Model.Flight.Notes </p>
+        <a href="#" class="btn btn-primary">Share</a>
+    </div>
+</div>

@@ -1,0 +1,109 @@
+﻿@model SpinnySideUp.Models.ViewModels.UpdateFlight
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (Html.BeginForm("Edit", "Flight", new { id = Model.Flight.FlightId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+<div class="form-horizontal">
+    <h4>Flight Editing</h4>
+    <hr />
+    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    @Html.HiddenFor(model => model.Flight.FlightId, new { Name = "FlightId" })
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.Date, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.Date, new { htmlAttributes = new { @class = "form-control", Name = "Date" } })
+            @Html.ValidationMessageFor(model => model.Flight.Date, "", new { @class = "text-danger", data_valmsg_for = "Date" })
+        </div>
+    </div>
+
+
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.Duty, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.Duty, new { htmlAttributes = new { @class = "form-control", Name="Duty" } })
+            @Html.ValidationMessageFor(model => model.Flight.Duty, "", new { @class = "text-danger", data_valmsg_for = "Duty" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.Seat, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.Seat, new { htmlAttributes = new { @class = "form-control", Name="Seat"} })
+            @Html.ValidationMessageFor(model => model.Flight.Seat, "", new { @class = "text-danger", data_valmsg_for = "Seat" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.Mission, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.Mission, new { htmlAttributes = new { @class = "form-control", Name="Mission" } })
+            @Html.ValidationMessageFor(model => model.Flight.Mission, "", new { @class = "text-danger", data_valmsg_for = "Mission" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.AircraftId, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.AircraftId, new { htmlAttributes = new { @class = "form-control", Name="AircraftId" } })
+            @Html.ValidationMessageFor(model => model.Flight.AircraftId, "", new { @class = "text-danger", data_valmsg_for = "AircraftId" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.Notes, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.Notes, new { htmlAttributes = new { @class = "form-control", Name="Notes" } })
+            @Html.ValidationMessageFor(model => model.Flight.Notes, "", new { @class = "text-danger", data_valmsg_for = "Notes" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.Day, htmlAttributes: new { @class = "control-label col-md-2", Name="Day" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.Day, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.Flight.Day, "", new { @class = "text-danger", data_valmsg_for = "Day" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.Night, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.Night, new { htmlAttributes = new { @class = "form-control", Name="Night" } })
+            @Html.ValidationMessageFor(model => model.Flight.Night, "", new { @class = "text-danger", data_valmsg_for = "Night" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.NightGoggles, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.NightGoggles, new { htmlAttributes = new { @class = "form-control" , Name="NightGoggles"} })
+            @Html.ValidationMessageFor(model => model.Flight.NightGoggles, "", new { @class = "text-danger", data_valmsg_for = "NightGoggles" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.NightSystems, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.NightSystems, new { htmlAttributes = new { @class = "form-control", Name="NightSystems" } })
+            @Html.ValidationMessageFor(model => model.Flight.NightSystems, "", new { @class = "text-danger", data_valmsg_for = "NightSystems" })
+        </div>
+    </div>
+    <div class="form-group">
+        @Html.LabelFor(model => model.Flight.Weather, htmlAttributes: new { @class = "control-label col-md-2" })
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.Flight.Weather, new { htmlAttributes = new { @class = "form-control", Name="Weather" } })
+            @Html.ValidationMessageFor(model => model.Flight.Weather, "", new { @class = "text-danger", data_valmsg_for = "Weather" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+</div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>

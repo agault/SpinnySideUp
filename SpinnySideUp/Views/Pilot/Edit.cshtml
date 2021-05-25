@@ -1,0 +1,111 @@
+﻿@model SpinnySideUp.Models.ViewModels.UpdatePilot
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit: @Model.Pilot.LastName, @Model.Pilot.FirstName</h2>
+
+@using (Html.BeginForm("Edit", "Pilot", new { id = Model.Pilot.PilotId }, FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    @Html.AntiForgeryToken()
+
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+            <li class="nav-item">
+                @Html.ActionLink("Cancel", "List")
+            </li>
+        </ul>
+    </div>
+    <div class="form-horizontal">
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.Pilot.PilotId, new { Name = "PilotId" })
+       
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pilot.FirstName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Pilot.FirstName, new { htmlAttributes = new { @class = "form-control", Name = "FirstName" } })
+                @Html.ValidationMessageFor(model => model.Pilot.FirstName, "", new { @class = "text-danger", data_valmsg_for = "FirstName" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pilot.LastName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Pilot.LastName, new { htmlAttributes = new { @class = "form-control", Name = "LastName" } })
+                @Html.ValidationMessageFor(model => model.Pilot.LastName, "", new { @class = "text-danger", data_valmsg_for = "LastName" })
+
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pilot.DateBirth, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Pilot.DateBirth, new { htmlAttributes = new { @class = "form-control", Name = "DateBirth" } })
+                @Html.ValidationMessageFor(model => model.Pilot.DateBirth, "", new { @class = "text-danger", data_valmsg_for = "DateBirth" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pilot.Rank, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Pilot.Rank, new { htmlAttributes = new { @class = "form-control", Name = "Rank" } })
+                @Html.ValidationMessageFor(model => model.Pilot.Rank, "", new { @class = "text-danger", data_valmsg_for = "Rank" })
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pilot.Fac, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Pilot.Fac, new { htmlAttributes = new { @class = "form-control", Name = "Fac" } })
+                @Html.ValidationMessageFor(model => model.Pilot.Fac, "", new { @class = "text-danger", data_valmsg_for = "Fac" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pilot.Pc, htmlAttributes: new { @class = "control-label col-md-2", Name = "Pc" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Pilot.Pc)
+                    @Html.ValidationMessageFor(model => model.Pilot.Pc, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pilot.Pi, htmlAttributes: new { @class = "control-label col-md-2", Name = "Pi" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Pilot.Pi)
+                    @Html.ValidationMessageFor(model => model.Pilot.Pi, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pilot.Sp, htmlAttributes: new { @class = "control-label col-md-2", Name = "Sp" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Pilot.Sp)
+                    @Html.ValidationMessageFor(model => model.Pilot.Sp, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+        <div class="form-group">
+            @Html.LabelFor(model => model.Pilot.Ip, htmlAttributes: new { @class = "control-label col-md-2", Name = "Ip" })
+            <div class="col-md-10">
+                <div class="checkbox">
+                    @Html.EditorFor(model => model.Pilot.Ip)
+                    @Html.ValidationMessageFor(model => model.Pilot.Ip, "", new { @class = "text-danger" })
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="form-group">
+        <div class="col-md-offset-2 col-md-10">
+            <input type="submit" value="Save" class="btn btn-default" />
+        </div>
+    </div>
+
+}
+<div>
+    @Html.ActionLink("Back to List", "List")
+</div>

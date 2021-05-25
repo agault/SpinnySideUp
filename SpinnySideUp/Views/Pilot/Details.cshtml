@@ -1,0 +1,79 @@
+﻿@model SpinnySideUp.Models.ViewModels.ShowPilot
+@{
+    ViewBag.Title = "Details";
+}
+<style>
+    .bio-row {
+        width: 50%;
+        float: left;
+        margin-bottom: 10px;
+        padding: 0 15px;
+    }
+
+    .bio-row p span {
+          width: 100px;
+          display: inline-block;
+     }
+</style>
+<h2>@Model.Pilot.FirstName @Model.Pilot.LastName</h2>
+<div class="card text-left">
+    <div class="card-header">
+        <ul class="nav nav-pills card-header-pills">
+                <li class="nav-item">
+                    @Html.ActionLink("All Flights", "List")
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Edit", "Edit", new { id = Model.Pilot.PilotId })
+                </li>
+                <li class="nav-item">
+                    @Html.ActionLink("Delete", "DeleteConfirm", new { id = Model.Pilot.PilotId })
+                </li>
+            </ul>
+    </div>
+    <div class="panel">
+        <div class="panel-body bio-graph-info">
+         
+            <div class="row">
+                <div class="bio-row">
+                    <p><span>First Name : </span>  @Model.Pilot.FirstName</p>
+                </div>
+                <div class="bio-row">
+                    <p><span>Last Name : </span>  @Model.Pilot.LastName</p>
+                </div>
+                <div class="bio-row">
+                    <p><span>DOB : </span>  @Model.Pilot.DateBirth</p>
+                </div>
+                <div class="bio-row">
+                    <p><span>Rank : </span>  @Model.Pilot.Rank</p>
+                </div>
+                <div class="bio-row">
+                    <p><span>FAC : </span>@Model.Pilot.Fac</p>
+                </div>
+                @Model.Pilot.Pc
+                <div class="bio-row">
+                    <p>
+                        <span>Qualifications : </span>
+                        @*@{
+                            if (@Model.Pc! == false)
+                            {
+                                @Model.Pilot.Pc
+                            }
+                            if (@Model.Pilot.Pi == True)
+                            {
+                                @Model.Pilot.Pi
+                            }
+                            if (@Model.Pilot.Sp)
+                            {
+                                @Model.Pilot.Sp
+                            }
+                            if (@Model.Pilot.Ip)
+                            {
+                                @Model.Pilot.Ip
+                            }
+                        }*@
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
